@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Medical Cost Prediction</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+    }
+    .input-field label {
+      color: #ffffff;
+    }
+    .input-field input[type=text] {
+      border-bottom: 1px solid #ffffff;
+      color: #ffffff;
+    }
+    .input-field input[type=text]:focus,
+    .input-field input[type=text].valid {
+      border-bottom: 1px solid #FF9300;
+      
+      box-shadow: 0 1px 0 0 #FF9300;
+      
+    }
+    .input-field input[type=text]::placeholder {
+      color: #b0b0b0;
+    }
+    .btn-large {
+      background-color: #FF9300;
+    }
+    .header {
+      color: #FF9300;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <br><br>
+    <h1 class="header center">Health Insurance Cost Prediction</h1>
+    <div class="row center">
+      <h6 class="header col s12 light">Prepared by group 08 CSE-04 </h6>
+      <div class="row center">
+        <h7 class="header col s12 light">BML Munjal University</h7>
+    <div class="row center">
+      <h5 class="header col s12 light">Predict the cost for your Medical Insurance!</h5>
+    </div>
+
+    <div class="row">
+      <form action='/predict' method="post" class="col s12">
+        <div class="row">
+          <div class="input-field col s4">
+            <label for="age"><b>Age</b></label>
+            <input placeholder="Age" name="age" id="age" type="text" class="validate">
+          </div>
+
+          <div class="input-field col s4">
+            <label for="gender"><b>Gender</b></label>
+            <input id="gender" name="Gender" placeholder="0 - Male/1 - Female" type="text" class="validate">
+          </div>
+
+          <div class="input-field col s4">
+            <label for="bmi"><b>BMI</b></label>
+            <input id="bmi" name="bmi" placeholder="BMI" type="text" class="validate">
+          </div>
+
+          <div class="input-field col s4">
+            <label for="children"><b>Children</b></label>
+            <input id="children" name="children" placeholder="0 for None" type="text" class="validate">
+          </div>
+
+          <div class="input-field col s4">
+            <label for="smoker"><b>Do you Smoke?</b></label>
+            <input id="smoker" name="smoker" placeholder="1 - Yes/0 - No" type="text" class="validate">
+          </div>
+
+          <div class="input-field col s4">
+            <label for="region"><b>Which Region?</b></label>
+            <input id="region" name="region" placeholder="0-NW/1-NE/2-SE/3-SW" type="text" class="validate">
+          </div>
+        </div>
+
+        <div class="row center">
+          <button type="submit" class="btn-large waves-effect waves-light">Predict Probability</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="dark-text center">
+      <br>
+      <h4>{{pred}}</h4><br>
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
